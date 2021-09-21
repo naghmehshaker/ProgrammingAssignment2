@@ -2,7 +2,17 @@
 ## this function creats a matrix object that can cache its inverse
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  inv <- NULL
+  set <- function(y) {
+    x <<- y
+    inv <<- NULL
+  }
+  get <- function() x
+  setmean <- function(inverse) inv <<- inverse
+  getmean <- function() inv
+  list(set = set, get = get,
+       setinverse = setinverse,
+       getinverse = getinverse)
 }
 
 ##this function computes the inverse of the matrix returned by makeCachMatrix above.
